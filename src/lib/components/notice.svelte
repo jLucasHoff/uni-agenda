@@ -35,7 +35,7 @@
     <h4 class={isLink(title) ? 'link' : ''}>
         {#if isLink(title)}
             <span class="material-symbols-rounded">link</span>
-            <a href={title} target="_blank" rel="noopener noreferrer">{title}</a>
+            <a href={title} target="_blank" rel="noopener noreferrer">{description}</a>
         {:else}
             {title}
         {/if}
@@ -76,6 +76,10 @@
         & h4 {
             font-size: 1rem;
             font-weight: normal;
+
+            &.link {
+                color: var(--color-link);
+            }
         }
 
         & #notice_description {
