@@ -1,0 +1,121 @@
+@font-face {
+    font-family: "UA font";
+    src: url("/fontes/Quattrocento-Regular.ttf");
+}
+
+:root {
+    --color-page: #F8FAFB;
+    --color-interactive: #EAEAEA;
+    --color-select-text: #C4C4C4;
+    --color-clickable: #AEE5FD;
+    --color-link: #55A8CC;
+    --ref-max-width: 1440px;
+
+    font-family: "UA font";
+}
+
+* {
+    margin: 0;
+    padding: 0;
+
+    outline: none;
+    border: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+
+    background-color: var(--color-page);
+
+    box-sizing: border-box;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    min-width: 300px;
+    max-width: 30vw;
+
+    & fieldset {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        & .form_area {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+
+            & > * {
+                height: 100%;
+
+                border-radius: 1rem;
+
+                box-sizing: border-box;
+                padding: 1rem;
+
+                user-select: none;
+
+                &:is(input) {
+                    background-color: var(--color-interactive);
+
+                    width: 100%;
+                }
+
+                &:is(button) {
+                    cursor: pointer;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    &:has(span.material-symbols-rounded) span.material-symbols-rounded{
+                        font-size: 1rem;
+                    }
+
+                    &:is([type="submit"]) {
+                        background-color: var(--color-clickable);
+                    }
+                }
+            }
+        }
+    }
+}
+
+h1 {
+    font-size: 1rem;
+    font-weight: normal;
+    align-items: center;
+
+    background: var(--color-interactive);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-link);
+
+    display: inline;
+    
+    width: fit-content;
+
+    &.disabled {
+        opacity: .5;
+        filter: saturate(0);
+        cursor: not-allowed;
+    }
+}
+
+:is(p, span, a, label, input)::selection {
+    background-color: var(--color-select-text);
+}
+
+button {
+    background-color: transparent;
+}
