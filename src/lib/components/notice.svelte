@@ -40,7 +40,11 @@
             {title}
         {/if}
     </h4>
-    <p id="notice_description">{description}</p>
+    <p id="notice_description">
+        {#if !isLink(title)}
+            {description}
+        {/if}
+    </p>
     <div class="scope-{scope}">
         <p id="notice_time_remain">
             <span class="material-symbols-rounded">
@@ -76,6 +80,9 @@
         & h4 {
             font-size: 1rem;
             font-weight: normal;
+
+            display: flex;
+            align-items: center;
 
             &.link {
                 color: var(--color-link);
